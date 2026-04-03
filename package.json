@@ -6,8 +6,6 @@
     "start": "node bot.js"
   },
   "dependencies": {
-    "mineflayer": "latest",
-    "mineflayer-pathfinder": "latest",
-    "mineflayer-collectblock": "latest"
+    "mineflayer": "latest"
   }
 }
