@@ -1,10 +1,10 @@
 const mineflayer = require('mineflayer')
 const http = require('http')
 
-// Простий веб-сервер для Render
+// Цей блок ОБОВ'ЯЗКОВИЙ для Render, щоб він не вимикав бота
 const server = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' })
-  res.end('Bot is running!')
+  res.end('Bot is active!')
 })
 server.listen(process.env.PORT || 3000)
 
@@ -12,20 +12,21 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: 'FRFRFRFRFRRFRFR.aternos.me', 
     port: 25565,
-    username: 'SmartBot_24_7',
-    version: '1.21.1', // Спробуй цю версію, вона найстабільніша
+    username: 'SmartBot_Render',
+    version: '1.21.1', // Стабільна версія для Mineflayer
     checkTimeout: 15000
   })
 
-  bot.on('spawn', () => console.log('[+] Бот у грі!'))
+  bot.on('spawn', () => console.log('[+] Бот успішно зайшов на сервер!'))
+  
   bot.on('chat', (username, message) => {
     if (username === bot.username) return
-    if (message === 'іди сюди') bot.chat('Біжу до тебе!')
+    if (message === 'іди сюди') bot.chat('Вже біжу!')
   })
 
-  bot.on('error', (err) => console.log('Помилка:', err))
+  bot.on('error', (err) => console.log('Помилка підключення:', err))
   bot.on('end', () => {
-    console.log('Відключено. Перепідключення через 15 сек...')
+    console.log('Зв’язок розірвано. Перепідключення за 15 сек...')
     setTimeout(createBot, 15000)
   })
 }
