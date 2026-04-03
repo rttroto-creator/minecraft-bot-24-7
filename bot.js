@@ -1,7 +1,7 @@
 const mineflayer = require('mineflayer')
 const http = require('http')
 
-// Цей блок ОБОВ'ЯЗКОВИЙ для Render, щоб він не вимикав бота
+// ЦЕЙ БЛОК ОБОВ'ЯЗКОВИЙ ДЛЯ RENDER
 const server = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' })
   res.end('Bot is active!')
@@ -13,7 +13,7 @@ function createBot() {
     host: 'FRFRFRFRFRRFRFR.aternos.me', 
     port: 25565,
     username: 'SmartBot_Render',
-    version: '1.21.1', // Стабільна версія для Mineflayer
+    version: '1.21.1',
     checkTimeout: 15000
   })
 
@@ -32,4 +32,8 @@ function createBot() {
 }
 
 createBot()
+
+
+
+
 
